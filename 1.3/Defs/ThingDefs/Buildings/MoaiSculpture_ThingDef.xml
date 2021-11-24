@@ -60,23 +60,6 @@
         <tradeTags>
           <li>Art</li>
         </tradeTags>
-        <recipeMaker>
-          <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-          <workSkill>Artistic</workSkill>
-          <unfinishedThingDef>UnfinishedSculpture</unfinishedThingDef>
-          <effectWorking>Sculpt</effectWorking>
-          <soundWorking>Recipe_Sculpt</soundWorking>
-          <recipeUsers>
-            <li>TableSculpting</li>
-          </recipeUsers>
-          <defaultIngredientFilter>
-            <categories>
-              <li>Root</li>
-            </categories>
-            <disallowedThingDefs>
-            </disallowedThingDefs>
-          </defaultIngredientFilter>
-        </recipeMaker>
     </ThingDef>
 
     <ThingDef ParentName="MoaiBase">
