@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Rimoai</name>
+	<author>PowerLunatic</author>
+		<supportedVersions>
+			<li>1.3</li>
+		</supportedVersions>
+		<packageId>powerlunatic.Rimoai</packageId>
+	<url>https://github.com/martinlyra/rw-mod-rimoai</url>
+	<description>This mod adds an buildable structure of the famous Moai statues. Extending the legacy of Easter Isle to the outer space, even the farthest frontier.</description>
+	<modDependencies>
+	</modDependencies>
+	<loadBefore>
+	</loadBefore>
+	<loadAfter>
+	</loadAfter>
+	<incompatibleWith />
+</ModMetaData>
