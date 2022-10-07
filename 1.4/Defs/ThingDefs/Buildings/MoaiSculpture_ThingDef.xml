@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef Name="MoaiBase" ParentName="BuildingBase" Abstract="True">
+      <thingClass>Building_Art</thingClass>
+      <altitudeLayer>Building</altitudeLayer>
+      <passability>PassThroughOnly</passability>
+      <pathCost>50</pathCost>
+      <useHitPoints>true</useHitPoints>
+      <minifiedDef>MinifiedThing</minifiedDef>
+      <thingCategories>
+        <li>BuildingsArt</li>
+      </thingCategories>
+      <thingSetMakerTags><li>RewardStandardLowFreq</li></thingSetMakerTags>
+      <statBases>
+        <Flammability>1.0</Flammability>
+        <SellPriceFactor>1.20</SellPriceFactor>
+        <MeditationFocusStrength>0.0</MeditationFocusStrength>
+      </statBases>
+      <comps>
+        <li>
+          <compClass>CompQuality</compClass>
+        </li>
+        <li Class="CompProperties_Art">
+          <nameMaker>NamerArtSculpture</nameMaker>
+          <descriptionMaker>ArtDescription_Sculpture</descriptionMaker>
+          <canBeEnjoyedAsArt>true</canBeEnjoyedAsArt>
+        </li>
+        <li Class="CompProperties_MeditationFocus">
+          <statDef>MeditationFocusStrength</statDef>
+          <focusTypes>
+            <li>Artistic</li>
+          </focusTypes>
+          <offsets>
+            <li Class="FocusStrengthOffset_Quality">
+              <curve>
+                <points>
+                  <li>(1,0.12)</li> <!-- awful -->
+                  <li>(2,0.16)</li> <!-- poor -->
+                  <li>(3,0.20)</li> <!-- normal -->
+                  <li>(4,0.22)</li> <!-- good -->
+                  <li>(5,0.24)</li> <!-- excellent -->
+                  <li>(6,0.26)</li> <!-- masterwork -->
+                  <li>(8,0.28)</li> <!-- legendary -->
+                </points>
+              </curve>
+            </li>
+            <li Class="FocusStrengthOffset_BuildingDefsWithQuality">
+              <defs>
+                <li>MoaiSmall</li>
+                <li>MoaiLarge</li>
+              </defs>
+              <radius>9.9</radius>
+              <maxBuildings>8</maxBuildings>
+              <focusPerQuality>
+                <points>
+                  <li>(1,0.0)</li> <!-- awful -->
+                  <li>(2,0.0)</li> <!-- poor -->
+                  <li>(3,0.01)</li> <!-- normal -->
+                  <li>(4,0.01)</li> <!-- good -->
+                  <li>(5,0.01)</li> <!-- excellent -->
+                  <li>(6,0.02)</li> <!-- masterwork -->
+                  <li>(8,0.02)</li> <!-- legendary -->
+                </points>
+              </focusPerQuality>
+              <explanationKey>MeditationFocusPerSculpture</explanationKey>
+              <explanationKeyAbstract>MeditationFocusPerSculptureAbstract</explanationKeyAbstract>
+            </li>
+          </offsets>
+        </li>
+        <li Class="CompProperties_Styleable"></li>
+      </comps>
+      <placeWorkers>
+        <li>PlaceWorker_MeditationOffsetBuildingsNear</li>
+      </placeWorkers>
+      <inspectorTabs>
+        <li>ITab_Art</li>
+      </inspectorTabs>
+      <tradeTags>
+        <li>Art</li>
+      </tradeTags>
+      <recipeMaker>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+        <workSkill>Artistic</workSkill>
+        <unfinishedThingDef>UnfinishedSculpture</unfinishedThingDef>
+        <effectWorking>Sculpt</effectWorking>
+        <soundWorking>Recipe_Sculpt</soundWorking>
+        <recipeUsers>
+          <li>TableSculpting</li>
+        </recipeUsers>
+        <defaultIngredientFilter>
+          <categories>
+            <li>Root</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>Gold</li>
+            <li>Silver</li>
+            <li>Plasteel</li>
+            <li>Jade</li>
+            <li>Uranium</li>
+          </disallowedThingDefs>
+        </defaultIngredientFilter>
+      </recipeMaker>
+      <ideoBuildingNamerBase MayRequire="Ludeon.RimWorld.Ideology">NamerIdeoSculpture</ideoBuildingNamerBase>
+      <ritualFocus>
+        <spectateDistance>2</spectateDistance>
+        <allowedSpectateSides>Down</allowedSpectateSides>
+      </ritualFocus>
+    </ThingDef>
+
+    <ThingDef ParentName="MoaiBase">
+      <defName>MoaiSmall</defName>
+      <label>small moai</label>
+      <description>A human-sized piece of material sculpted into an elongated resemblence of a person's head and body.</description>
+      <castEdgeShadows>true</castEdgeShadows>
+      <graphicData>
+        <graphicClass>Graphic_Random</graphicClass>
+        <texPath>Things/Building/Art/MoaiSmall</texPath>
+        <drawSize>(2,2)</drawSize>
+      </graphicData>
+      <fillPercent>0.5</fillPercent>
+      <rotatable>false</rotatable>
+      <size>(1,1)</size>
+      <canOverlapZones>false</canOverlapZones>
+      <statBases>
+        <MaxHitPoints>150</MaxHitPoints>
+        <Mass>9</Mass>
+        <Beauty>80</Beauty>
+        <WorkToMake>9000</WorkToMake>
+      </statBases>
+      <stuffCategories>
+        <li>Metallic</li>
+        <li>Woody</li>
+        <li>Stony</li>
+      </stuffCategories>
+      <costStuffCount>75</costStuffCount>
+    </ThingDef>
+
+    <ThingDef ParentName="MoaiBase">
+      <defName>MoaiLarge</defName>
+      <label>large moai</label>
+      <description>A huge piece of material sculpted into an elongated resemblence of a person's head, considered "life-size".</description>
+      <castEdgeShadows>true</castEdgeShadows>
+      <graphicData>
+        <graphicClass>Graphic_Random</graphicClass>
+        <texPath>Things/Building/Art/MoaiLarge</texPath>
+        <drawSize>(3.5,3.5)</drawSize>
+      </graphicData>
+      <fillPercent>0.5</fillPercent>
+      <rotatable>false</rotatable>
+      <size>(2,2)</size>
+      <canOverlapZones>false</canOverlapZones>
+      <statBases>
+        <MaxHitPoints>600</MaxHitPoints>
+        <Mass>56</Mass>
+        <Beauty>600</Beauty>
+        <WorkToMake>55000</WorkToMake>
+      </statBases>
+      <stuffCategories>
+        <li>Metallic</li>
+        <li>Woody</li>
+        <li>Stony</li>
+      </stuffCategories>
+      <costStuffCount>300</costStuffCount>
+    </ThingDef>
+</Defs>
